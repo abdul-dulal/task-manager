@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Components/navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Components/home/Home";
+import Todo from "./Components/todo/Todo";
+import Calander from "./Components/calender/Calander";
+import Signup from "./Components/singup/Signup";
+import Login from "./Components/login/Login";
+import Modal from "./Components/home/Modal";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/todo" element={<Todo />} />
+        <Route path="/calender" element={<Calander />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/modal/:id" element={<Modal />} />
+      </Routes>
+      {/* <Modal /> */}
     </div>
   );
 }
